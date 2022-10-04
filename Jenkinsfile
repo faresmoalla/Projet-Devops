@@ -23,6 +23,11 @@ pipeline {
                 
                     }
                 }
+		stage("Sonar"){
+			steps{
+			sh """ mvn sonar:sonar"""
+			}
+			}
                   stage('Run Tests') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
