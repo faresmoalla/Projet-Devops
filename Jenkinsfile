@@ -18,8 +18,8 @@ pipeline {
              stage('Checkout GIT') {
             steps {
               echo 'cloning project'
-                 git branch: 'Facture-Fares',
-                 url : 'https://github.com/Radhwen91/App-e-commerce' ;
+                 git branch: 'main',
+                 url : 'https://github.com/faresmoalla/Projet-Devops' ;
                 
                     }
                 }
