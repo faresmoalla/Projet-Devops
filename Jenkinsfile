@@ -8,10 +8,11 @@ pipeline {
     stages {
     
             
-        stage("Test,Build") {
+        stage("Test,Build","compile) {
             steps {
               
-             sh """ mvn -version"""
+             sh """ mvn clean install"""
+		sh """ mvn compile"""
                     }
                
             }
