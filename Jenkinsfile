@@ -8,14 +8,7 @@ pipeline {
     stages {
     
             
-        stage("Test,Build","compile) {
-            steps {
-              
-             sh """ mvn clean install"""
-		sh """ mvn compile"""
-                    }
-               
-            }
+     
              stage('Checkout GIT') {
             steps {
               echo 'cloning project'
