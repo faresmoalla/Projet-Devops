@@ -44,18 +44,7 @@ pipeline {
                 }
             }
         }
-post {
-always {
 
-emailext (
-to: "${EMAIL_RECIPIENTS}",
-replyTo: "${EMAIL_RECIPIENTS}",
-subject: "[BuildResult][${currentBuild.currentResult}] - Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})",
-mimeType: 'text/html',
-body: '''${JELLY_SCRIPT, template="custom-html.jelly"}'''
-)
-}
-}
 
 
 
