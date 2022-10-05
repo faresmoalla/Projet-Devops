@@ -20,8 +20,9 @@ pipeline {
 	stage('Compile Project') {
             steps {
                 script{
+		timestamps {
                     sh 'mvn clean install -DskipTests'
-                    }
+                    } }
                 }
             }
 
