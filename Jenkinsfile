@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script{
 		timestamps {
-                    sh 'mvn clean install -DskipTests'
+                    sh 'mvn clean install -DskipTests package'
                     } }
                 }
             }
