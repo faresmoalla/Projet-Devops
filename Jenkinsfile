@@ -17,6 +17,16 @@ pipeline {
                 
                     }
                 }
+	stage('Compile Project') {
+            steps {
+                script{
+                    sh 'mvn clean install -DskipTests'
+                    }
+                }
+            }
+
+
+
 		stage("Sonar"){
 			steps{
 			sh """ mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar"""
