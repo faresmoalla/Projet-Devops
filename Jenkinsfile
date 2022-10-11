@@ -1,6 +1,7 @@
 pipeline {
        environment { 
         EMAIL_RECIPIENTS = "fares.moalla@esprit.tn"
+       
     
     }
 
@@ -12,28 +13,29 @@ pipeline {
              stage('Checkout GIT') {
             steps {
               echo 'cloning project'
-                 git branch: 'main',
+               
                  url : 'https://github.com/faresmoalla/Projet-Devops' ;
                 
                     }
                 }
-	stage('Compile Project') {
+	stage('Cleaning the project and artifact construction') {
             steps {
                 script{
 		timestamps {
                     sh 'mvn clean install -DskipTests package'
+                     sh 'mvn compile'
                     } }
                 }
             }
 
 
 
-		stage("Sonar"){
+		stage("Code Quality with SonarQube"){
 			steps{
 			sh """ mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar"""
 			}
 			}
-                  stage('Run Tests') {
+                  stage('Run Unit Tests') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 script{
@@ -44,7 +46,11 @@ pipeline {
                 }
             }
         }
-
+stage("Publish to Nexus"){
+			steps{
+			
+			}
+			}	
 
 
 
