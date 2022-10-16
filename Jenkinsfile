@@ -1,6 +1,6 @@
 pipeline {
      
-//test webhook
+//test webhooks
 
     agent any
     stages {
