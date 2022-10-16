@@ -1,9 +1,5 @@
 pipeline {
-       environment { 
-        EMAIL_RECIPIENTS = "fares.moalla@esprit.tn"
-       
-    
-    }
+     
 
     agent any
     stages {
